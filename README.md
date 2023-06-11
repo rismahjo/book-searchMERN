@@ -6,6 +6,7 @@
 - [Demonstration](#demonstration)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technologies](#technologies)
 
 ## Description
 
@@ -28,3 +29,15 @@ After installing packages, you can run the application using:
 ```
 npm run develop
 ```
+
+## Technologies
+
+This project uses:
+
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+- JavaScript
+- GraphQL API
+- Apollo Server
