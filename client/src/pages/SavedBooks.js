@@ -2,11 +2,10 @@ import React from "react";
 import {
   Jumbotron,
   Container,
+  CardColumns,
   Card,
   Button,
-  CardColumns,
 } from "react-bootstrap";
-
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -19,7 +18,7 @@ const SavedBooks = () => {
   console.log(userData);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+  // function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -54,8 +53,8 @@ const SavedBooks = () => {
         </Container>
       </Jumbotron>
       <Container>
-        <h2 className="pt-5">
-          {userData.savedBooks.length
+        <h2>
+          {userData.savedBooks?.length
             ? `Viewing ${userData.savedBooks.length} saved ${
                 userData.savedBooks.length === 1 ? "book" : "books"
               }:`

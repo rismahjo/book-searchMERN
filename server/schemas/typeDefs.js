@@ -1,9 +1,9 @@
 const { gql } = require("apollo-server-express");
 
-// An `!` means the field is not allowed to be null
+// ！means that the field is non-nullable.
 const typeDefs = gql`
   type User {
-    _id: id
+    _id: ID
     username: String
     email: String
     bookCount: Int

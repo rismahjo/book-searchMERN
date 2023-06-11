@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
-// Import useMutation and LOGIN-USER
+// import useMutation and LOGIN-USER
 import { useMutation } from "@apollo/react-hooks";
 import { LOGIN_USER } from "../utils/mutations";
 
@@ -13,13 +13,14 @@ const LoginForm = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  // Declare loginUser with useMutation
+  // declaring loginUser with useMutation
   const [loginUser, { error }] = useMutation(LOGIN_USER);
 
   useEffect(() => {
     if (error) setShowAlert(true);
     else setShowAlert(false);
-  }, [error]);
+  }, [error])
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -36,7 +37,7 @@ const LoginForm = () => {
       event.stopPropagation();
     }
 
-    // Use loginUser function
+    // use loginUser function
     try {
       const { data } = await loginUser({
         variables: { ...userFormData },
@@ -65,7 +66,7 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
             type="text"
@@ -80,7 +81,7 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"

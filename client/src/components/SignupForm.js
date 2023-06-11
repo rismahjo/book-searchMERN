@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
-// Import Apollo hook and add user mutation
+// import appolo hook and add user mutation
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_USER } from "../utils/mutations";
 
@@ -19,7 +19,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  // Declased the addUser with the useMutation
+  // declared the addUser with the useMutation
   const [addUser, { error }] = useMutation(ADD_USER);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
-    // Use addUser function
+    // use addUser function
     try {
       const { data } = await addUser({
         variables: { ...userFormData },
@@ -77,7 +77,7 @@ const SignupForm = () => {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
             type="text"
@@ -92,7 +92,7 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
             type="email"
@@ -107,7 +107,7 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
